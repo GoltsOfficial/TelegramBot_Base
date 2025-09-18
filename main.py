@@ -1,6 +1,7 @@
 from aiogram import Bot, Dispatcher, types
 from aiogram.utils import executor
 from Gear.config import config
+from Gear.payments.yookassa import YooKassa
 
 # модуль payments
 from payments.yookassa import YooKassa
@@ -17,11 +18,11 @@ async def pay(msg: types.Message):
     try:
         amount = int(msg.get_args())
     except ValueError:
-        return await msg.answer("Укажи сумму: /pay 100")
+        return await msg.answer("Укажите сумму: /pay 100")
 
     yk = YooKassa()
     url = yk.create_payment(amount, "Пополнение баланса")
-    await msg.answer(f"Оплатить можно тут:\n{url}")
+    await msg.answer(f"Оплатить можно здесь:\n{url}")
 
 if __name__ == "__main__":
     executor.start_polling(dp, skip_updates=True)
