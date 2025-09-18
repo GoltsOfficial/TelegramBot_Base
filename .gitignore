@@ -8,7 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-build/
+Gear/.venv/Lib/site-packages/pip/_internal/operations/build/
 develop-eggs/
 dist/
 downloads/
@@ -148,7 +148,7 @@ activemq-data/
 *.sage.py
 
 # Environments
-.env
+../.env
 .envrc
 .venv
 env/
